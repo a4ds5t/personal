@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /admin
 
 Sitemap: https://personal.a4ds5t.workers.dev/sitemap.xml
