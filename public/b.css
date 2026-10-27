@@ -15,6 +15,7 @@
   --line-strong: #3a4352;
   --accent: #8ec4ce;
   --accent-dim: rgba(142,196,206,0.10);
+  --accent-glow: rgba(142,196,206,0.42);
   --accent-line: rgba(142,196,206,0.45);
   --wash-a: rgba(142,196,206,0.045);
   --wash-b: rgba(142,196,206,0.08);
@@ -40,6 +41,7 @@
   --line-strong: #c0c6cb;
   --accent: #3d6b7a;
   --accent-dim: rgba(61,107,122,0.10);
+  --accent-glow: rgba(61,107,122,0.38);
   --accent-line: rgba(61,107,122,0.35);
   --wash-a: rgba(61,107,122,0.035);
   --wash-b: rgba(61,107,122,0.05);
@@ -141,33 +143,40 @@ a:hover { color: var(--accent); }
   max-width: 780px;
   position: relative;
   z-index: 1;
+  overflow: visible;
   padding-left: 14px;
   border-left: 2px solid var(--accent);
 }
 
 .hero-rule-tip {
   position: absolute;
-  left: -4px;
-  top: 0;
+  left: -5px;
+  top: -3px;
+  z-index: 2;
+  display: block;
   width: 6px;
   height: 6px;
   border-radius: 1px;
   background: var(--accent);
   box-shadow: 0 0 0 3px var(--accent-dim);
+  transform-origin: center center;
+  pointer-events: none;
   animation: tip-pulse 4.5s ease-in-out infinite;
 }
 
 @keyframes tip-pulse {
   0%, 100% {
     transform: scale(1);
-    box-shadow: 0 0 0 3px var(--accent-dim);
-    opacity: 0.75;
+    box-shadow:
+      0 0 0 3px var(--accent-dim),
+      0 0 8px transparent;
+    opacity: 0.85;
   }
   50% {
     transform: scale(1.35);
     box-shadow:
       0 0 0 6px var(--accent-dim),
-      0 0 12px color-mix(in srgb, var(--accent) 40%, transparent);
+      0 0 14px var(--accent-glow);
     opacity: 1;
   }
 }
@@ -175,6 +184,7 @@ a:hover { color: var(--accent); }
 @media (prefers-reduced-motion: reduce) {
   .hero-rule-tip {
     animation: none;
+    opacity: 1;
   }
 }
 
