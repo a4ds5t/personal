@@ -1,0 +1,16 @@
+{
+  "name": "armand-personal-homebase",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Armand personal X-bio homebase — Night (B) on Cloudflare Workers",
+  "scripts": {
+    "dev": "wrangler dev --port 43123",
+    "deploy": "wrangler deploy",
+    "check": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20261023.1",
+    "typescript": "^5.8.3",
+    "wrangler": "^4.14.0"
+  }
+}

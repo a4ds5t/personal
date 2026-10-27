@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://personal.a4ds5t.workers.dev/sitemap.xml
