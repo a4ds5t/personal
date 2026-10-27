@@ -1,6 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="night">
 <head>
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("armand-theme");
+        if (t === "c2" || t === "night") document.documentElement.setAttribute("data-theme", t);
+      } catch (_e) { /* ignore */ }
+    })();
+  </script>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="description" content="Armand — personal homebase. Builds &amp; ships with Grok.bot, Cursor, and Cloudflare Workers."/>
@@ -33,6 +41,7 @@
     </header>
 
     <section class="hero">
+      <span class="hero-rule-tip" aria-hidden="true"></span>
       <p class="kicker">Personal homebase</p>
       <h1>Armand</h1>
       <p class="tagline">💡 Builds &amp; ships · Grok.bot + Cursor + Cloudflare Workers</p>
@@ -115,10 +124,16 @@
     </div>
 
     <footer class="foot">
-      <span>armand · personal</span>
-      <span>mock · ronde 1 · proposed</span>
+      <span class="foot-mark">armand · personal</span>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch between Night and Day theme">
+        <span class="lab">Night</span>
+        <span class="switch" aria-hidden="true"></span>
+        <span class="lab">Day</span>
+      </button>
+      <span class="foot-meta">mock · ronde 1 · proposed</span>
     </footer>
   </div>
 
+  <script src="/theme.js" defer></script>
 </body>
 </html>
