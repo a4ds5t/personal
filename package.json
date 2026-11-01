@@ -2,7 +2,7 @@
   "name": "armand-personal-homebase",
   "private": true,
   "version": "1.0.0",
-  "description": "Armand personal X-bio homebase — Night (B) on Cloudflare Workers",
+  "description": "Armand personal X-bio homebase — Marginalia on Cloudflare Workers",
   "scripts": {
     "dev": "wrangler dev --port 43123",
     "deploy": "wrangler deploy",

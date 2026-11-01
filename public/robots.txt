@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /admin
 
 Sitemap: https://a4ds5t.soholocal.nl/sitemap.xml
