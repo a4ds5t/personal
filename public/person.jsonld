@@ -1,0 +1,13 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Armand van der Swaerdt",
+  "alternateName": "a4ds5t",
+  "url": "https://a4ds5t.soholocal.nl/",
+  "sameAs": [
+    "https://x.com/a4ds5t",
+    "https://bsky.app/profile/a4ds5t.bsky.social",
+    "https://github.com/a4ds5t",
+    "https://buildinpublic.com/x/a4ds5t"
+  ]
+}
