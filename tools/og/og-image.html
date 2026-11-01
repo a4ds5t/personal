@@ -1,0 +1,152 @@
+<!--
+  Source for public/og-image.png (1200x630). Not served: lives outside public/.
+
+  Re-render with:
+    google-chrome --headless=new --disable-gpu --hide-scrollbars \
+      --force-device-scale-factor=1 --window-size=1200,630 \
+      --allow-file-access-from-files \
+      --screenshot=public/og-image.png file://$PWD/tools/og/og-image.html
+
+  Fonts are the same self-hosted woff2 files the page uses, so the card cannot
+  drift from the site. Colours are the Marginalia tokens.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Marginalia share card</title>
+<style>
+  @font-face {
+    font-family: "Newsreader";
+    font-style: normal;
+    font-weight: 300 600;
+    font-display: block;
+    src: url("../../public/fonts/newsreader-latin.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: "Newsreader";
+    font-style: italic;
+    font-weight: 300 500;
+    font-display: block;
+    src: url("../../public/fonts/newsreader-italic-latin.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400 500;
+    font-display: block;
+    src: url("../../public/fonts/inter-latin.woff2") format("woff2");
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 1200px;
+    height: 630px;
+    overflow: hidden;
+  }
+
+  body {
+    background: #FAF6EE;
+    color: #1E1A15;
+    font-family: "Newsreader", Georgia, serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .card {
+    width: 1200px;
+    height: 630px;
+    padding: 76px 88px 64px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .top {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #E5DCCC;
+    font-family: "Inter", sans-serif;
+    font-size: 19px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #6B6152;
+  }
+
+  .top .name { color: #4A4238; }
+
+  .body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 8px;
+  }
+
+  .mark {
+    width: 54px;
+    height: 1px;
+    background: #3D6B57;
+    margin-bottom: 34px;
+  }
+
+  h1 {
+    margin: 0;
+    font-weight: 400;
+    font-size: 104px;
+    line-height: 0.98;
+    letter-spacing: -0.022em;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: #3D6B57;
+  }
+
+  .sub {
+    margin: 28px 0 0;
+    max-width: 20em;
+    font-size: 30px;
+    line-height: 1.4;
+    color: #4A4238;
+  }
+
+  .foot {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding-top: 20px;
+    border-top: 1px solid #E5DCCC;
+    font-family: "Inter", sans-serif;
+    font-size: 18px;
+    letter-spacing: 0.08em;
+    color: #6B6152;
+  }
+
+  .foot .host { color: #3D6B57; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="top">
+      <span class="name">Armand &middot; a4ds5t</span>
+      <span>Personal page</span>
+    </div>
+
+    <div class="body">
+      <div class="mark"></div>
+      <h1>Vibe coding<br/><em>learning</em></h1>
+      <p class="sub">Learning the tooling, the landscape, and AI &mdash; by building things and shipping them.</p>
+    </div>
+
+    <div class="foot">
+      <span class="host">a4ds5t.soholocal.nl</span>
+      <span>Running on a Cloudflare Worker</span>
+    </div>
+  </div>
+</body>
+</html>

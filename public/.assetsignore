@@ -1,0 +1,4 @@
+# Admin preview pages stay in the repo for a separate decision,
+# but they are not part of the public Marginalia page.
+admin/
+admin.css

@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" fill="none">
-  <rect width="1200" height="630" fill="#080a0d"/>
-  <rect x="80" y="120" width="4" height="200" fill="#8ec4ce"/>
-  <text x="100" y="200" font-family="Georgia, serif" font-size="28" fill="#8ec4ce" letter-spacing="4">PERSONAL HOMEBASE</text>
-  <text x="100" y="300" font-family="Georgia, serif" font-size="96" fill="#f0f2f5">Armand</text>
-  <text x="100" y="380" font-family="monospace" font-size="28" fill="#a8b0bc">Builds &amp; ships · Grok.bot + Cursor + Cloudflare Workers</text>
-</svg>

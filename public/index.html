@@ -1,167 +1,134 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="night">
+<html lang="en">
 <head>
-  <script>
-    (function () {
-      try {
-        var t = localStorage.getItem("armand-theme");
-        if (t === "c2" || t === "night") document.documentElement.setAttribute("data-theme", t);
-      } catch (_e) { /* ignore */ }
-    })();
-  </script>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="description" content="Armand — personal homebase. Builds &amp; ships with Grok.bot, Cursor, and Cloudflare Workers."/>
-  <meta name="robots" content="index, follow"/>
-  <title>Armand · personal homebase</title>
-  <link rel="canonical" href="https://personal.a4ds5t.workers.dev/"/>
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
-  <meta property="og:type" content="website"/>
-  <meta property="og:title" content="Armand · personal homebase"/>
-  <meta property="og:description" content="Builds &amp; ships · Grok.bot + Cursor + Cloudflare Workers"/>
-  <meta property="og:url" content="https://personal.a4ds5t.workers.dev/"/>
-  <meta property="og:image" content="https://personal.a4ds5t.workers.dev/og-image.svg"/>
-  <meta name="twitter:card" content="summary"/>
-  <meta name="twitter:title" content="Armand · personal homebase"/>
-  <meta name="twitter:description" content="Builds &amp; ships · Grok.bot + Cursor + Cloudflare Workers"/>
-  <link rel="stylesheet" href="/b.css"/>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Armand · personal page</title>
+<meta name="description" content="Armand — builds and ships with Grok.bot, Cursor, and Cloudflare Workers."/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://a4ds5t.soholocal.nl/"/>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
+<meta name="theme-color" content="#FAF6EE"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Armand"/>
+<meta property="og:title" content="Armand · personal page"/>
+<meta property="og:description" content="Learning vibe coding — the tooling, the landscape, and AI — by building things and shipping them."/>
+<meta property="og:url" content="https://a4ds5t.soholocal.nl/"/>
+<meta property="og:image" content="https://a4ds5t.soholocal.nl/og-image.png"/>
+<meta property="og:image:type" content="image/png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="Vibe coding learning — Armand · a4ds5t, cream paper card with evergreen accents."/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:creator" content="@a4ds5t"/>
+<meta name="twitter:site" content="@a4ds5t"/>
+<meta name="twitter:title" content="Armand · personal page"/>
+<meta name="twitter:description" content="Learning vibe coding — the tooling, the landscape, and AI — by building things and shipping them."/>
+<meta name="twitter:image" content="https://a4ds5t.soholocal.nl/og-image.png"/>
+<meta name="twitter:image:alt" content="Vibe coding learning — Armand · a4ds5t, cream paper card with evergreen accents."/>
+<link rel="preload" href="/fonts/newsreader-latin.woff2" as="font" type="font/woff2" crossorigin="anonymous"/>
+<link rel="stylesheet" href="/b.css"/>
 </head>
-<body class="density-a pill-p2">
+<body>
+<main class="sheet">
 
-  <div class="page">
-    <header class="topbar">
-      <div class="mark">Armand</div>
-      <nav class="nav" aria-label="Sections">
-        <a href="#now">Now</a>
-        <a href="#shipped">Shipped</a>
-        <a href="#from-x">From X</a>
-        <a href="#elsewhere">Elsewhere</a>
-      </nav>
-      <div class="top-actions">
-        <a class="ops-link" href="/admin/" title="Personal ops (preview)">Ops</a>
-        <span class="pill">Cloudflare Worker</span>
-      </div>
-    </header>
+  <header class="topline">
+    <p class="who">Vibe coding learning</p>
+    <nav aria-label="Elsewhere">
+      <a href="https://x.com/a4ds5t" rel="me noopener">X</a>
+      <a href="https://github.com/a4ds5t" rel="me noopener">GitHub</a>
+    </nav>
+  </header>
 
-    <div class="hero-band">
-      <section class="hero">
-        <span class="hero-rule-tip" aria-hidden="true"></span>
-        <p class="kicker">Personal homebase</p>
-        <h1>Armand</h1>
-        <p class="tagline">💡 Builds &amp; ships · Grok.bot + Cursor + Cloudflare Workers</p>
-        <p class="lede">Quiet notes from shipping product and agents on the edge — patterns that made it to production.</p>
-      </section>
+  <section class="row intro" aria-labelledby="hello">
+    <p class="label">Who</p>
+    <div class="col">
+      <h1 id="hello">Hi, I&rsquo;m Armand.</h1>
+      <p class="lead">I build and ship with Grok.bot, Cursor, and Cloudflare Workers.</p>
+      <p>Quiet notes from shipping product and agents on the edge &mdash; the patterns that actually made it to production. Ideas are cheap; speed without taste is cheap too. The rare part is finding a path nobody else takes, then shipping it.</p>
+      <p>Most of what I write lands on X first. GitHub is where the code lives.</p>
+    </div>
+  </section>
 
-      <div class="hero-pinned" id="pinned">
-        <span class="post-block-label">Pinned</span>
-        <a
-          class="x-card x-card--pinned"
-          href="https://x.com/a4ds5t/status/2114601081523028135"
-          rel="noopener noreferrer"
-        >
-          <span class="x-meta">@a4ds5t</span>
-          <p class="x-excerpt">This essay names the monoculture. It unfortunately doesn&rsquo;t answer the only question that changes everything: how to replace this factory? If people rise by impressing the same rooms that graded them, you get slide-deck governments. The alternative is to advance only those who already delivered results, not those that excel at networking and voicing lies to get elected. Citizens also need real leverage over who governs. China pushes leaders up through a proven performance-based system (local proof before national power). We should build a Western version that keeps our values of freedom and democracy while still rewarding competence over career politicians&hellip;</p>
-        </a>
+  <section class="row" aria-labelledby="now-label">
+    <h2 class="label" id="now-label">Now</h2>
+    <div class="col now-line">
+      <span class="pulse" aria-hidden="true"></span>
+      <p>I&rsquo;m learning vibe coding &mdash; the tooling, the landscape, and what AI can actually do. Most of it I learn by building small things and shipping them.</p>
+    </div>
+  </section>
+
+  <section class="row" aria-labelledby="work">
+    <h2 class="label" id="work">Working on</h2>
+    <div class="col">
+      <ol class="projects">
+        <li>
+          <span class="num" aria-hidden="true">01</span>
+          <span class="name"><a href="https://xmas.soholocal.nl/">Christmas countdown</a>
+            <span class="desc">A live countdown to 25 December, in four languages.</span>
+          </span>
+          <span class="state">Live</span>
+        </li>
+        <li>
+          <span class="num" aria-hidden="true">02</span>
+          <span class="name"><a href="https://start.soholocal.nl/">Start page (minimal)</a>
+            <span class="desc">A quiet personal launcher &mdash; search, clock, a few links.</span>
+          </span>
+          <span class="state">Live</span>
+        </li>
+        <li>
+          <span class="num" aria-hidden="true">03</span>
+          <span class="name">Projects to learn vibe coding
+            <span class="desc">Small builds to learn the tooling, the stack, and the landscape.</span>
+          </span>
+          <span class="state">Ongoing</span>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="row" aria-labelledby="posts">
+    <h2 class="label" id="posts">From X</h2>
+    <div class="col">
+      <p class="posts-note">Recent popular posts</p>
+      <div class="posts">
+        <figure class="post">
+          <blockquote><p>Execution is a moat. The one that&rsquo;s harder to outsource to AI is human creativity and ingenuity. Ideas are cheap. Speed without taste is also cheap. The rare combo is inventing a path others wouldn&rsquo;t take then shipping it.</p></blockquote>
+          <figcaption class="post-meta">
+            <a href="https://x.com/a4ds5t/status/2114236472354058379" rel="noopener">@a4ds5t on X</a>
+          </figcaption>
+        </figure>
+        <figure class="post">
+          <blockquote><p>The viz just makes the greatness of these composers impossible to ignore.</p></blockquote>
+          <figcaption class="post-meta">
+            <a href="https://x.com/a4ds5t/status/2114277579859611715" rel="noopener">@a4ds5t on X</a>
+          </figcaption>
+        </figure>
+        <figure class="post">
+          <blockquote><p>Paris looks like this for a reason. A lot of people who love that beauty also worry about immigration, recent riots, and whether Europe can keep places like this while still working for everyone who lives here and follows the rules. Beauty isn&rsquo;t the fight. Better politics is.</p></blockquote>
+          <figcaption class="post-meta">
+            <a href="https://x.com/a4ds5t/status/2114326745490837617" rel="noopener">@a4ds5t on X</a>
+          </figcaption>
+        </figure>
       </div>
     </div>
+  </section>
 
-    <div class="sections">
-      <section class="section sec-now" id="now">
-        <p class="sec-label">Nu bezig</p>
-        <div class="now-card">
-          <h3>Personal Worker homebase</h3>
-          <p>Replacing the GitHub profile link in my X bio with a calm, fast personal page — hero, what I&rsquo;m building, what shipped, and a few curated posts.</p>
-          <div class="meta-row">
-            <span class="chip">Workers</span>
-            <span class="chip">Grok.bot</span>
-            <span class="chip">Cursor</span>
-          </div>
-        </div>
-      </section>
-
-      <section class="section sec-shipped" id="shipped">
-        <p class="sec-label">Shipped</p>
-        <ul class="ship-list">
-          <li>
-            <span class="ship-dot" aria-hidden="true"></span>
-            <div>
-              <strong>Agent desk on Workers</strong>
-              <span>Multi-agent orchestration · Cloudflare edge</span>
-            </div>
-          </li>
-          <li>
-            <span class="ship-dot" aria-hidden="true"></span>
-            <div>
-              <strong>Startpage (minimal)</strong>
-              <span>Fast personal launcher · Themes + weather</span>
-            </div>
-          </li>
-          <li>
-            <span class="ship-dot" aria-hidden="true"></span>
-            <div>
-              <strong>Grok.bot workflows</strong>
-              <span>Patterns → shipped · Cursor + Workers</span>
-            </div>
-          </li>
-        </ul>
-      </section>
-
-      <section class="section sec-x" id="from-x" aria-labelledby="from-x-label">
-        <p class="sec-label" id="from-x-label">Van X</p>
-        <div class="post-block post-block--highlights">
-          <span class="post-block-label">Highlights</span>
-          <div class="x-grid x-grid--highlights">
-            <a
-              class="x-card"
-              href="https://x.com/a4ds5t/status/2114236472354058379"
-              rel="noopener noreferrer"
-            >
-              <span class="x-meta">@a4ds5t</span>
-              <p class="x-excerpt">Execution is a moat. The one that&rsquo;s harder to outsource to AI is human creativity and ingenuity. Ideas are cheap. Speed without taste is also cheap. The rare combo is inventing a path others wouldn&rsquo;t take then shipping it.</p>
-            </a>
-            <a
-              class="x-card"
-              href="https://x.com/a4ds5t/status/2114277579859611715"
-              rel="noopener noreferrer"
-            >
-              <span class="x-meta">@a4ds5t</span>
-              <p class="x-excerpt">The viz just makes the greatness of these composers impossible to ignore.</p>
-            </a>
-            <a
-              class="x-card"
-              href="https://x.com/a4ds5t/status/2114326745490837617"
-              rel="noopener noreferrer"
-            >
-              <span class="x-meta">@a4ds5t</span>
-              <p class="x-excerpt">Paris looks like this for a reason. A lot of people who love that beauty also worry about immigration, recent riots, and whether Europe can keep places like this while still working for everyone who lives here and follows the rules. Beauty isn&rsquo;t the fight. Better politics is.</p>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section class="section sec-else" id="elsewhere">
-        <div>
-          <p class="sec-label">Elders</p>
-          <p class="else-note">Secondary links — X is primary; GitHub for the code.</p>
-        </div>
-        <div class="else-links">
-          <a class="else-link" href="https://x.com/a4ds5t" rel="noopener noreferrer">X / @a4ds5t <span class="arrow" aria-hidden="true">↗</span></a>
-          <a class="else-link" href="https://github.com/a4ds5t" rel="noopener noreferrer">GitHub <span class="arrow" aria-hidden="true">↗</span></a>
-        </div>
-      </section>
+  <section class="row" aria-labelledby="social">
+    <h2 class="label" id="social">Elsewhere</h2>
+    <div class="col">
+      <div class="social">
+        <a href="https://x.com/a4ds5t" rel="me noopener">X <span>@a4ds5t</span></a>
+        <a href="https://github.com/a4ds5t" rel="me noopener">GitHub <span>a4ds5t</span></a>
+      </div>
     </div>
+  </section>
 
-    <footer class="foot">
-      <span class="foot-mark">armand · personal</span>
-      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch between Night and Day theme">
-        <span class="lab">Night</span>
-        <span class="switch" aria-hidden="true"></span>
-        <span class="lab">Day</span>
-      </button>
-      <span class="foot-meta">mock · density A · proposed</span>
-    </footer>
-  </div>
+  <footer class="foot">
+    <span>Armand · a4ds5t</span>
+    <span>Running on a Cloudflare Worker</span>
+  </footer>
 
-  <script src="/theme.js" defer></script>
+</main>
 </body>
 </html>
