@@ -1,5 +1,6 @@
 /* Marginalia — personal page for Armand (@a4ds5t)
-   Cream paper, serif display, grotesque margin labels. No JS. */
+   Cream paper, serif display, grotesque margin labels. No page JS;
+   locale routing + cookie persist live in the Worker. */
 
 @font-face {
   font-family: "Newsreader";
@@ -38,6 +39,12 @@
   --tint: rgba(255, 255, 255, 0.55);
   --serif: "Newsreader", Georgia, "Times New Roman", serif;
   --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Simplified Chinese: keep Latin faces, fall back to system CJK (no self-hosted CJK woff2). */
+:lang(zh-Hans) {
+  --serif: "Newsreader", "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", "STSong", "SimSun", serif;
+  --sans: "Inter", "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
 }
 
 *,
@@ -88,10 +95,10 @@ a:focus-visible {
 
 .topline {
   display: flex;
-  align-items: baseline;
+  align-items: flex-start;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 10px 16px;
+  gap: 10px 20px;
   padding-bottom: 14px;
   border-bottom: 1px solid var(--rule);
   font-family: var(--sans);
@@ -99,6 +106,16 @@ a:focus-visible {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--muted);
+}
+
+.topline-main {
+  display: flex;
+  flex: 1 1 16rem;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  min-width: 0;
 }
 
 .topline .who {
@@ -119,6 +136,63 @@ a:focus-visible {
   text-transform: none;
   text-align: right;
   color: var(--accent);
+}
+
+:lang(zh-Hans) .topline .who {
+  letter-spacing: 0.06em;
+  text-transform: none;
+}
+
+:lang(zh-Hans) .topline .sub,
+:lang(zh-Hans) .label,
+:lang(zh-Hans) .posts-note,
+:lang(zh-Hans) .projects .state {
+  letter-spacing: 0.04em;
+  text-transform: none;
+}
+
+/* Language switcher — top right, plain text links (no pills/cards). */
+.lang {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: baseline;
+  gap: 0.35em;
+  margin: 0;
+  margin-left: auto;
+  padding-top: 1px;
+  font-family: var(--sans);
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.lang a {
+  color: inherit;
+  padding-bottom: 1px;
+  border-bottom: 1px solid transparent;
+  transition: color 0.18s ease, border-color 0.18s ease;
+}
+
+.lang a:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+.lang a[aria-current="page"] {
+  color: var(--ink-soft);
+  border-bottom-color: var(--rule);
+  cursor: default;
+}
+
+.lang-sep {
+  opacity: 0.55;
+}
+
+.lang a[lang="zh-Hans"] {
+  letter-spacing: 0;
+  text-transform: none;
 }
 
 /* ---- margin grid ---- */
@@ -476,6 +550,12 @@ a:focus-visible {
   .topline .sub {
     text-align: left;
     max-width: none;
+  }
+
+  .lang {
+    width: 100%;
+    margin-left: 0;
+    justify-content: flex-start;
   }
 
   .social {

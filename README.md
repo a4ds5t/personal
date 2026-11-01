@@ -1,43 +1,55 @@
 # Armand · personal page
 
-A single static page served from a Cloudflare Worker — the destination linked from an X bio.
-**Marginalia**: cream paper, serif display type, small grotesque margin labels, one narrow column.
-No JavaScript, no bindings, no database. Live at **https://a4ds5t.soholocal.nl/**.
+A single Marginalia page served from a Cloudflare Worker — the destination linked from an X bio.
+Cream paper, serif display type, small grotesque margin labels, one narrow column.
+**Zero page JavaScript.** Locale detection and cookie persist live in the Worker.
+Live at **https://a4ds5t.soholocal.nl/** (canonical English path: `/en/`).
+
+## Locales
+
+| Locale | Path | Notes |
+| --- | --- | --- |
+| `en` | `/en/` | English — fallback for unmatched browsers |
+| `nl-NL` | `/nl-NL/` | Dutch (Netherlands); primary translation voice from English |
+| `es-419` | `/es-419/` | Spanish (Latin America), not Spain |
+| `zh-Hans` | `/zh-Hans/` | Simplified Mandarin; CJK glyphs use system fonts |
+
+### Detection and persist
+
+On `/` the Worker resolves a locale, then `302`s to `/{locale}/`:
+
+1. `?lang=` query (manual switch from the top-right links) → that locale, and **Set-Cookie** `locale`
+2. else valid `locale` cookie
+3. else first matching `Accept-Language` tag: `zh*`→`zh-Hans`, `es*`→`es-419`, `nl*`→`nl-NL`, `en*`→`en`
+4. else **`en`** (fallback — matches the live English default)
+
+Cookie is written **only** after a manual switch (`?lang=`), not on Accept-Language detect.
+No `localStorage`, no inline scripts — CSP stays `script-src 'self' https://static.cloudflareinsights.com`.
 
 ## Layout
 
 ```
 public/
-  index.html      the whole page — all content lives here
-  b.css           styles and @font-face rules
-  fonts/          self-hosted woff2 (Newsreader roman + italic, Inter)
+  en/ nl-NL/ es-419/ zh-Hans/   one index.html per locale
+  b.css           styles and @font-face rules (+ CJK system fallbacks)
+  fonts/          self-hosted woff2 (Newsreader roman + italic, Inter latin)
   _headers        security headers, font and CSS caching
   og-image.png    share card (1200×630)
   favicon.svg
   robots.txt
-  sitemap.xml
-src/index.ts      Worker entry — hands every request to the static assets
+  sitemap.xml     all four locale URLs + hreflang alternates
+src/index.ts      Worker — `/` locale redirect; everything else → ASSETS
 tools/og/         source for the share card; not served
-wrangler.toml     Worker name, compatibility date, [assets] config
+wrangler.toml     Worker name, assets, run_worker_first = ["/"]
 ```
 
 ## Editing content
 
-Everything visitors read is in `public/index.html`: the intro paragraphs, the "Now" line, the
-numbered project rows, and the quoted X posts. Each post links to its real status URL. Edit and
-commit — there is no build step.
+Edit the matching `public/{locale}/index.html`. Project names (`Almost Christmas`, `StartPage`)
+and handles stay as-is across locales. Section banners still help when swapping volatile bands.
 
-Sections are separated by comment banners. If you add or swap a volatile band (the "Now" line, the
-X posts), bracket it so the next edit is obvious:
-
-```html
-<!-- FROM X: start -->
-<section class="row" aria-labelledby="posts"> … </section>
-<!-- FROM X: end -->
-```
-
-Copy that also appears on the share card (`tools/og/og-image.html`, the `<h1>` and the subtitle) is
-duplicated by hand; change both if you change the headline.
+Copy that also appears on the share card (`tools/og/og-image.html`) is duplicated by hand;
+change both if you change the English headline used on the card.
 
 ## Local dev
 
@@ -46,7 +58,8 @@ npm install
 npm run dev      # wrangler dev --port 43123
 ```
 
-Then open http://localhost:43123/. `npm run check` runs `tsc --noEmit` over `src/`.
+Then open http://localhost:43123/ (redirects by Accept-Language / cookie).
+`npm run check` runs `tsc --noEmit` over `src/`.
 
 ## Deploy
 
@@ -54,17 +67,17 @@ Then open http://localhost:43123/. `npm run check` runs `tsc --noEmit` over `src
 npx wrangler deploy
 ```
 
-Pushes a new Worker version to production. To check what would ship without deploying:
+Pushes a new Worker version to production. Preview without touching production:
 
 ```bash
-npx wrangler deploy --dry-run
+npx wrangler versions upload
 ```
 
 ## Custom domain
 
-`a4ds5t.soholocal.nl` is a custom domain on the Worker, attached outside this repo. The host appears
-as an absolute URL in `index.html` (`canonical`, `og:url`, the two image tags) and in `sitemap.xml`;
-change all of it together if the domain ever moves.
+`a4ds5t.soholocal.nl` is a custom domain on the Worker, attached outside this repo. Absolute
+URLs appear in each locale HTML (`canonical`, `og:url`, image tags), `sitemap.xml`, and
+`person.jsonld`; change all of it together if the domain ever moves.
 
 ## Share card
 
