@@ -2,7 +2,7 @@
   "name": "armand-personal-homebase",
   "private": true,
   "version": "1.2.0",
-  "description": "Armand personal page — Marginalia on Cloudflare Workers (en, nl-NL, es-419, zh-Hans)",
+  "description": "Armand personal page — Marginalia on Cloudflare Workers (en, nl, es, zh)",
   "scripts": {
     "dev": "wrangler dev --port 43123",
     "deploy": "wrangler deploy",
