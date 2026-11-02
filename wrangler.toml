@@ -8,8 +8,17 @@ preview_urls = true
 directory = "./public"
 binding = "ASSETS"
 # Root `/` must hit the Worker for Accept-Language / cookie / ?lang= redirects.
+# Legacy regional paths redirect to short language codes in the Worker.
 # Locale HTML and static assets stay asset-first.
-run_worker_first = ["/"]
+run_worker_first = [
+  "/",
+  "/nl-NL",
+  "/nl-NL/*",
+  "/es-419",
+  "/es-419/*",
+  "/zh-Hans",
+  "/zh-Hans/*",
+]
 
 [[routes]]
 pattern = "a4ds5t.soholocal.nl"
